@@ -1,0 +1,27 @@
+Validation completed locally on 2026-10-02.
+
+33 automated tests passed with Python 3.9.6, OCI SDK 2.187.0 and FDK 0.1.124.
+Deployment configuration targets the documented Python 3.11 Fn images.
+Python source syntax and all JSON files validated.
+
+Coverage includes:
+- Leap-year and exclusive date boundaries.
+- Decimal arithmetic, currencies, usage units and SKU separation.
+- Reconciliation failures, forecast exclusion and invalid values.
+- Missing history and empty-day disclosure.
+- Correct replacement of revised dates without double counting.
+- Pagination resume after interruption.
+- Report-upload interruption before publication.
+- Recovery of an ingestion create whose response was lost.
+- File-level partial ingestion failure and explicit retry.
+- Stable published manifests during a refresh.
+- Configuration mismatch detection and soft execution deadlines.
+- Gzip object round-trip, size guards, conditional leases and stale-lock recovery.
+- Actual SDK model/method parameter validation with the HTTP transport mocked.
+- Compartment path changes without duplicated or omitted totals.
+
+Not performed: Docker image build, live OCI deployment/invocation, IAM or VCN
+verification, tenancy-specific historical availability, live ingestion or
+comparison to the customer's Cost Analysis output.
+
+Version 0.2.0 additions tested: bucket defaults/overrides, closed calendar periods, leap-year comparisons, year-over-year arithmetic, incomplete-history suppression, weekday/weekend averages, bottom-N ordering with untruncated totals and service-specific investigation guidance.

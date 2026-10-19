@@ -1,0 +1,73 @@
+[
+  {
+    "action": "status"
+  },
+  {
+    "action": "refresh"
+  },
+  {
+    "action": "refresh",
+    "force_refresh": true
+  },
+  {
+    "action": "retry_ingestion"
+  },
+  {
+    "action": "query",
+    "metric": "cost",
+    "start_date": "2026-07-01",
+    "end_date": "2026-10-01",
+    "group_by": [
+      "compartment_id"
+    ],
+    "limit": 20
+  },
+  {
+    "action": "query",
+    "metric": "cost",
+    "start_date": "2026-07-01",
+    "end_date": "2026-10-01",
+    "group_by": [
+      "service"
+    ],
+    "filters": {
+      "compartment_id": "REPLACE_WITH_COMPARTMENT_OCID"
+    },
+    "limit": 20
+  },
+  {
+    "action": "query",
+    "metric": "cost",
+    "start_date": "2026-07-01",
+    "end_date": "2026-10-01",
+    "group_by": [
+      "region",
+      "service"
+    ],
+    "limit": 50
+  },
+  {
+    "action": "query",
+    "metric": "usage",
+    "start_date": "2026-07-01",
+    "end_date": "2026-10-01",
+    "group_by": [
+      "compartment_id"
+    ],
+    "filters": {
+      "service": "Compute"
+    },
+    "limit": 20
+  },
+  {
+    "action": "query",
+    "metric": "cost",
+    "start_date": "2026-07-01",
+    "end_date": "2026-09-29",
+    "group_by": [
+      "service"
+    ],
+    "order": "ascending",
+    "limit": 10
+  }
+]
