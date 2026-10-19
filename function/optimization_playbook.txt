@@ -1,0 +1,34 @@
+# FinOps interpretation and optimization playbook
+
+This document is methodology, not measured customer findings. Use numerical report evidence first. All optimization ideas below require validation; cost alone does not prove waste.
+
+## Executive answer structure
+1. State the exact UTC interval, exclusive end, currency and last refresh.
+2. Give the relevant measured cost, trend, concentration or comparison, citing the report.
+3. Explain the business implication supported by that evidence.
+4. Clearly label possible causes as hypotheses.
+5. Recommend a specific owner and investigation. Distinguish a Finance review from an engineering change.
+6. Quantify a savings scenario only with an explicit supplied reduction assumption and eligible cost base. Do not claim realizable savings without engineering and commercial validation.
+
+## Compute and database
+For rising Compute or database costs, investigate changes in quantities, shapes, runtime, deployments, license model and discounts. Check utilization, workload service objectives and minimum capacity before recommending rightsizing. Investigate schedules for nonproduction environments after owners confirm when shutdown is safe and whether that shape/service stops billing. Do not infer idle instances, overprovisioning or license eligibility from cost totals.
+
+## Storage and backup
+For rising storage costs, investigate growth, retention, backup copies, tier mix and request charges. Review lifecycle policies and deletion eligibility with data owners. Include retrieval costs, minimum storage durations, compliance and recovery objectives before recommending a colder tier or deletion. Cost reports alone do not identify orphaned volumes or unused backups.
+
+## Network and regional spend
+Investigate changes in traffic, replication and data movement when network costs increase. Regional concentration describes spend, not resilience. Do not recommend a region migration without latency, residency, availability and migration-cost assessment.
+
+## Finance and commitments
+Use run rates as scenarios with explicit assumptions. Do not describe COST totals as invoice payable, cash payments, budget variance or remaining Universal Credits. Those require invoice, tax, credit, contract, budget and subscription inputs. Do not infer PAYG versus Annual Universal Credits from a service name or cost amount. Higher total costs do not establish a price increase; quantities and like-for-like SKU pricing must be checked.
+
+## Comparisons and statistical limits
+Use the period exactly stated in the report. Calendar periods differ in length. Prefer cost per calendar day when discussing spending rates. A spike above the previous seven-day average is an investigation candidate, not proof of anomalous behavior or waste. Seasonal workloads and planned launches can cause spikes. Percent change from a zero or negative baseline is not a normal growth percentage. Credits or adjustments can make amounts negative and shares exceed 100%.
+
+## Unsupported evidence
+Budgets, tags/owners, resource inventory, CPU/memory utilization, contractual commitments, business transaction volumes and production criticality are not collected by this implementation. Ask for the relevant evidence instead of making up findings. Do not rank different physical units or different SKUs together as "most used".
+
+## Scope
+Compartment reports follow the configured Usage API compartment depth. Boundary compartments can include descendant costs; match that depth in Cost Analysis. There is no additional local descendant rollup. Cross-region/service/compartment queries are supported by the region cost view; historical compartment paths are available in the separate cost view. Do not join these facts in a way that multiplies spend.
+
+Reference: https://docs.oracle.com/en/solutions/oci-best-practices/track-and-manage-usage-and-cost1.html
